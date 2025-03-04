@@ -7,7 +7,7 @@ load_dotenv()
 
 API_KEY = os.getenv("API_KEY")
 CITY = "Paris"
-URL = f"http: //api.weatherapi.com/v1/current.json?key={API_KEY}&q={CITY}"
+URL = f"http://api.weatherapi.com/v1/current.json?key={API_KEY}&q={CITY}"
 
 
 def get_weather() -> None:
@@ -18,8 +18,8 @@ def get_weather() -> None:
     response = requests.get(URL)
     if response.status_code == 200:
         data = response.json()
-        print(f"Weather in {CITY}: {data["current"]["temp_c"]}°C, "
-              f"{data["current"]["condition"]["text"]}")
+        print(f"Weather in {CITY}: {data['current']['temp_c']}°C, "
+              f"{data['current']['condition']['text']}")
     else:
         print(f"Error: {response.status_code}, {response.text}")
 
